@@ -18,6 +18,8 @@ const NewUser = (props) => {
     event.preventDefault();
     const newUser = { id: Math.random().toString(), name: userName, age: userAge }
     props.onUpdateUserList(newUser)
+    setUserName('');
+    setUserAge('');
   }
 
   return (

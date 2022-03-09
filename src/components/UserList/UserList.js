@@ -3,7 +3,12 @@ import UserListItem from "./UserListItem";
 
 const UserList = props => {
 
-  const showUserList = props.userList.map((user) => <UserListItem key={user.id} name={user.name} age={user.age} />)
+  const clickHandler = (event) => {
+    props.onDelete(event.target.id.toString());
+  }
+
+
+  const showUserList = props.userList.map((user) => <UserListItem onClick={clickHandler} id={user.id} key={user.id} name={user.name} age={user.age} />)
   return (
     <div>
       {showUserList}

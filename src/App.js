@@ -16,12 +16,19 @@ function App() {
     });
   }
 
+  const deleteHandler = deleteUserId => {
+    setUserList(prev => {
+      const deletedArr = prev.filter(user => user.id !== deleteUserId);
+      return deletedArr;
+    });
+  }
+
   console.log("in app");
   console.log(userList);
   return (
     <div>
       <NewUser onUpdateUserList={updateUserListHandler} />
-      <UserList userList={userList} />
+      <UserList userList={userList} onDelete={deleteHandler} />
     </div>
 
 
